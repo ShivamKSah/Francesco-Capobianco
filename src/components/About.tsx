@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import profileImage from "../profile.png";
+import profileImage from "../3.jpeg";
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);

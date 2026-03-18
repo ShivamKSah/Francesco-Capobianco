@@ -2,19 +2,34 @@ import { motion } from "motion/react";
 
 const testimonials = [
   {
-    quote: "Aidan captured our wedding day with such raw emotion and beauty. We watch our video every anniversary and it still brings us to tears.",
-    author: "Sarah & James",
+    quote: "Having Aidan capture our wedding day meant so much. He made everyone feel comfortable, relaxed, and excited, and he preserved both the big moments and the little in-between moments perfectly. I cannot recommend him enough.",
+    author: "Emily Grace",
+    role: "Wedding Client",
+  },
+  {
+    quote: "Aidan was THE best. He took time to understand our vibe, was super helpful all day, and our wedding video turned out better than we expected. The day wouldn't have been the same without him.",
+    author: "Wyatt & Cheyanne",
     role: "Wedding Clients",
   },
   {
-    quote: "Double Take Films elevated our brand's visual identity. The storytelling was sharp, purposeful, and exactly what we needed.",
-    author: "Mark T.",
-    role: "CEO, Lumina Tech",
+    quote: "The booking process was smooth, communication was excellent, and he made everything feel stress-free from the start. You can truly tell he cares about providing great service.",
+    author: "Maddie & Aj",
+    role: "Wedding Clients",
   },
   {
-    quote: "Working with Aidan was a dream. He made us feel so comfortable, and the final product was nothing short of cinematic magic.",
-    author: "Emma W.",
-    role: "Event Client",
+    quote: "Double Take Films transformed our business. The videos showcased our services beautifully, connected with our target audience, and helped bring in a significant number of new clients.",
+    author: "JDM Roof Restoration",
+    role: "Business Client",
+  },
+  {
+    quote: "Aidan was incredible to work with on our roofing install content. The quality was outstanding, he was flexible and professional on site, and delivered far more content than we expected.",
+    author: "HomeX Roofing",
+    role: "Business Client",
+  },
+  {
+    quote: "We really enjoyed working with Aidan on promotional videos. His recommendations made the content more engaging, and his editing, creative features, and sound design brought everything to life.",
+    author: "Primary Air HVAC",
+    role: "Business Client",
   },
 ];
 

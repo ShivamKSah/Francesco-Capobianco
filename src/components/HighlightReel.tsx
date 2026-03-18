@@ -1,6 +1,21 @@
 import { motion } from "motion/react";
+import { useRef, useState } from "react";
 
 export function HighlightReel() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const showReelVideo = `/wedding-videos/${encodeURIComponent("wedding.mp4")}`;
+
+  const handlePlay = async () => {
+    if (!videoRef.current) return;
+    try {
+      await videoRef.current.play();
+      setIsPlaying(true);
+    } catch {
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section className="py-24 bg-brand-gray text-white">
       <div className="container mx-auto px-6 md:px-12">
@@ -10,14 +25,24 @@ export function HighlightReel() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl group cursor-pointer"
+          onClick={handlePlay}
         >
-          <img
-            src="https://picsum.photos/seed/highlight/1920/1080?blur=1"
-            alt="Highlight Reel Thumbnail"
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            referrerPolicy="no-referrer"
+          <video
+            ref={videoRef}
+            src={showReelVideo}
+            className="w-full h-full object-cover"
+            controls={isPlaying}
+            preload="metadata"
+            playsInline
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
           />
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center">
+
+          <div
+            className={`absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center ${
+              isPlaying ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
             <div className="flex flex-col items-center gap-6">
               <motion.div
                 whileHover={{ scale: 1.1 }}

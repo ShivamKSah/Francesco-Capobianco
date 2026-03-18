@@ -6,3 +6,11 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Exclude large video files
+DTF Brand/
+DTF Captures/
+DTF Wedding/
+*.mp4
+*.mov
+*.webm

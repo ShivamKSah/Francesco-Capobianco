@@ -1,41 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const eventTypeOptions = [
+    "Wedding Film",
+    "Brand / Business Video",
+    "Creative Project",
+    "Event Coverage",
+    "Showreel / Social Content",
+    "Other",
+  ];
+  const [eventType, setEventType] = useState("");
+  const [eventTypeOpen, setEventTypeOpen] = useState(false);
+  const eventTypeRef = useRef<HTMLDivElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!eventTypeRef.current?.contains(e.target as Node)) {
+        setEventTypeOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("submitting");
 
     const formData = new FormData(e.currentTarget);
-    
-    // IMPORTANT: Replace this with your actual Web3Forms access key
-    // Get one for free at https://web3forms.com/
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const eventType = String(formData.get("eventType") ?? "");
+    const eventDate = String(formData.get("eventDate") ?? "");
+    const message = String(formData.get("message") ?? "");
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+    const whatsappText = [
+      "Hi Aidan, I am interested in working with Double Take Films.",
+      "",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Event Type: ${eventType}`,
+      `Event Date: ${eventDate}`,
+      `Message: ${message}`,
+    ].join("\n");
 
-      const data = await response.json();
-
-      if (data.success) {
-        setStatus("success");
-        e.currentTarget.reset();
-        // Reset status after 5 seconds
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        console.error("Form submission error:", data);
-        setStatus("error");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-      setStatus("error");
-    }
+    const whatsappUrl = `https://wa.me/18632896311?text=${encodeURIComponent(whatsappText)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -60,11 +72,14 @@ export function Contact() {
             </p>
             
             <div className="flex flex-col gap-6">
-              <a href="mailto:hello@doubletakefilms.com" className="text-2xl font-serif hover:text-white/70 transition-colors w-fit">
-                hello@doubletakefilms.com
+              <a href="mailto:aidank0125@gmail.com" className="text-2xl font-serif hover:text-white/70 transition-colors w-fit">
+                aidank0125@gmail.com
               </a>
-              <a href="tel:+919963830194" className="text-lg font-light text-white/70 hover:text-white transition-colors w-fit">
-                +91 9963830194
+              <a href="tel:+18632896311" className="text-lg font-light text-white/70 hover:text-white transition-colors w-fit">
+                +1 (863) 289-6311
+              </a>
+              <a href="https://instagram.com/aidan_kramer_films" target="_blank" rel="noreferrer" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors w-fit">
+                @aidan_kramer_films
               </a>
             </div>
           </motion.div>
@@ -78,11 +93,6 @@ export function Contact() {
             className="bg-brand-gray p-8 md:p-12 rounded-2xl border border-white/5"
           >
             <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-              {/* Hidden field for Web3Forms subject */}
-              <input type="hidden" name="subject" value="New Inquiry from Double Take Films Portfolio" />
-              {/* Honeypot field to prevent spam */}
-              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-xs uppercase tracking-widest text-white/50">Name</label>
@@ -111,19 +121,53 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="eventType" className="text-xs uppercase tracking-widest text-white/50">Event Type</label>
-                  <select
-                    id="eventType"
-                    name="eventType"
-                    required
-                    defaultValue=""
-                    className="bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-white transition-colors appearance-none"
-                  >
-                    <option value="" disabled className="text-black">Select an option</option>
-                    <option value="wedding" className="text-black">Wedding</option>
-                    <option value="brand" className="text-black">Brand / Business</option>
-                    <option value="event" className="text-black">Event</option>
-                    <option value="other" className="text-black">Other</option>
-                  </select>
+                  <div className="relative" ref={eventTypeRef}>
+                    <input type="hidden" name="eventType" value={eventType} required />
+                    <button
+                      id="eventType"
+                      type="button"
+                      onClick={() => setEventTypeOpen((prev) => !prev)}
+                      className="w-full bg-transparent border-b border-white/20 py-3 pr-10 text-left focus:outline-none focus:border-white hover:border-white/50 transition-colors"
+                      aria-haspopup="listbox"
+                      aria-expanded={eventTypeOpen}
+                    >
+                      <span className={eventType ? "text-white" : "text-white/40"}>
+                        {eventType || "Select your project type"}
+                      </span>
+                    </button>
+                    <ChevronDown
+                      size={16}
+                      className={`pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-white/60 transition-transform ${eventTypeOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+
+                    {eventTypeOpen && (
+                      <div
+                        className="absolute left-0 right-0 mt-2 z-20 rounded-lg border border-white/15 bg-brand-black overflow-hidden shadow-2xl"
+                        role="listbox"
+                      >
+                        {eventTypeOptions.map((option) => (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => {
+                              setEventType(option);
+                              setEventTypeOpen(false);
+                            }}
+                            className={`w-full text-left px-4 py-3 text-sm transition-colors ${
+                              option === eventType
+                                ? "bg-white/15 text-white"
+                                : "text-white/80 hover:bg-white/10 hover:text-white"
+                            }`}
+                            role="option"
+                            aria-selected={option === eventType}
+                          >
+                            {option}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="eventDate" className="text-xs uppercase tracking-widest text-white/50">Event Date</label>
@@ -149,29 +193,12 @@ export function Contact() {
                 ></textarea>
               </div>
 
-              {status === "success" && (
-                <div className="flex items-center gap-2 text-green-400 text-sm mt-2">
-                  <CheckCircle2 size={16} />
-                  <span>Message sent successfully! We'll be in touch soon.</span>
-                </div>
-              )}
-              
-              {status === "error" && (
-                <div className="flex items-center gap-2 text-red-400 text-sm mt-2">
-                  <AlertCircle size={16} />
-                  <span>Something went wrong. Please try emailing us directly.</span>
-                </div>
-              )}
-
               <button
                 type="submit"
-                disabled={status === "submitting"}
-                className={`group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-full font-medium tracking-wide uppercase text-sm transition-all mt-4 w-full md:w-auto self-start ${
-                  status === "submitting" ? "opacity-70 cursor-not-allowed" : "hover:bg-white/90"
-                }`}
+                className="group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-full font-medium tracking-wide uppercase text-sm transition-all mt-4 w-full md:w-auto self-start hover:bg-white/90"
               >
-                {status === "submitting" ? "Sending..." : "Send Inquiry"}
-                <ArrowRight size={16} className={`transition-transform ${status !== "submitting" && "group-hover:translate-x-1"}`} />
+                Send on WhatsApp
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </button>
             </form>
           </motion.div>

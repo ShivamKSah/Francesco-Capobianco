@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import image1 from "../1.jpeg";
 import image2 from "../2.jpeg";
 import image3 from "../3.jpeg";
@@ -9,20 +10,24 @@ const categories = [
     title: "Wedding Films",
     image: image1,
     description: "Authentic, emotional storytelling of your special day.",
+    href: "/wedding-films",
   },
   {
     title: "Brand / Business Videos",
     image: image2,
     description: "Clean, purposeful energy to elevate your brand.",
+    href: "/brand-videos",
   },
   {
     title: "Creative Projects",
     image: image3,
     description: "Cinematic visuals for unique and artistic visions.",
+    href: "/creative-projects",
   },
 ];
 
 export function FeaturedWork() {
+  const navigate = useNavigate();
   return (
     <section id="work" className="py-32 bg-brand-black text-white">
       <div className="container mx-auto px-6 md:px-12">
@@ -62,6 +67,7 @@ export function FeaturedWork() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="group cursor-pointer flex flex-col gap-6"
+              onClick={() => category.href && navigate(category.href)}
             >
               <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-brand-gray">
                 <img
@@ -83,7 +89,12 @@ export function FeaturedWork() {
               </div>
               
               <div>
-                <h4 className="text-2xl font-serif mb-2 group-hover:text-white/80 transition-colors">{category.title}</h4>
+                <div className="flex items-center gap-2">
+                  <h4 className="text-2xl font-serif mb-2 group-hover:text-white/80 transition-colors">{category.title}</h4>
+                  {category.href && (
+                    <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-y-1 text-white/60" />
+                  )}
+                </div>
                 <p className="text-white/60 font-light text-sm leading-relaxed">{category.description}</p>
               </div>
             </motion.div>

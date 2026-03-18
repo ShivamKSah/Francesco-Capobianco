@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Instagram, Facebook, Youtube, Twitter } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 export function Footer() {
   return (
@@ -30,18 +30,23 @@ export function Footer() {
           {/* Socials */}
           <div className="flex flex-col gap-4">
             <h4 className="text-xs uppercase tracking-widest text-white/50 mb-2">Connect</h4>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/aidan_kramer_films"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all"
+              >
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                <Youtube size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                <Twitter size={18} />
+              <a
+                href="https://instagram.com/aidan_kramer_films"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-white/70 hover:text-white transition-colors"
+              >
+                @aidan_kramer_films
               </a>
             </div>
           </div>
