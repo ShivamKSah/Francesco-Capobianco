@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import profileImage from "../3.jpeg";
+
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ export function About() {
             <img 
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
               alt="Portrait of Aidan Kramer looking thoughtful" 
-              src={profileImage}
+              src="/videos/aidan.png"
             />
           </div>
         </motion.div>
@@ -37,7 +37,7 @@ export function About() {
           <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">Aidan Kramer</h2>
           <div className="space-y-6 text-slate-300 font-light leading-relaxed text-lg">
             <p>I believe every moment has a heartbeat. My mission is to find that pulse and capture it in its most beautiful form.</p>
-            <p>With over a decade behind the lens, I've transitioned from capturing simple movements to choreographing emotions through light, sound, and sequence. Double Take Films isn't just about recording—it's about making you look twice.</p>
+            <p>Capturing moments professionally since 2024, I've transitioned from capturing simple movements to choreographing emotions through light, sound, and sequence. Double Take Films isn't just about recording—it's about making you look twice.</p>
             <p className="font-serif italic text-white text-xl">"Cinematography is the bridge between what is seen and what is felt."</p>
           </div>
           <div className="mt-10 flex gap-6 grayscale opacity-50">

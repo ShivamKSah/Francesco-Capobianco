@@ -9,7 +9,7 @@ import {
   useVideoThumbnail,
 } from "../lib/videoThumbnails";
 
-type Category = "Wedding Films" | "Business Videos" | "Creative Projects";
+type Category = "All";
 
 interface Project {
   id: string;
@@ -20,49 +20,16 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // ── Wedding Films ──────────────────────────────────────────────
-  { id: "w-hw",       title: "H&W Wedding",            category: "Wedding Films",    url: "https://drive.google.com/file/d/1BmchTztsAjOodQGvsxkaNFS94gG7IOjL/view?usp=sharing" },
-  { id: "w-j1",       title: "J Wedding (Extended)",   category: "Wedding Films",    url: "https://drive.google.com/file/d/1ilO59ahY_LvMZBalv2pNUeEd51uC1uQc/view?usp=sharing" },
-  { id: "w-jk",       title: "J&K Wedding",            category: "Wedding Films",    url: "https://drive.google.com/file/d/1iQqns4YYZmDTcRL4wCQaqUIvw4YcqDo0/view?usp=sharing", poster: "/wedding-thumbnails/j-and-k.png" },
-  { id: "w-j",        title: "J Wedding",              category: "Wedding Films",    url: "https://drive.google.com/file/d/1si8R8YRmEe3SL9xoDMJ1tPzXt2-IYog0/view?usp=sharing", poster: "/wedding-thumbnails/j.png" },
-  { id: "w-jake",     title: "Jake",                   category: "Wedding Films",    url: "https://drive.google.com/file/d/1XqjffeM8lZsyAgm0utl0uZg8PyWOiPqF/view?usp=sharing" },
-  { id: "w-lover",    title: "Lover",                  category: "Wedding Films",    url: "https://drive.google.com/file/d/1F2aj1e-fKjluVWy3lVqaDNQEbQvHN7B0/view?usp=sharing" },
-  { id: "w-pinner",   title: "Pinner Wedding",         category: "Wedding Films",    url: "https://drive.google.com/file/d/1c02Cn7L0TScEEctIKCBwXnFDrAmcEa2r/view?usp=sharing" },
-  { id: "w-pollard-1", title: "Pollard Wedding (1)",    category: "Wedding Films",    url: "https://drive.google.com/file/d/12VmUr_pI0r4pF8tAJ2MueqQf-waijEOz/view?usp=sharing" },
-  { id: "w-pollard",  title: "Pollard Wedding",        category: "Wedding Films",    url: "https://drive.google.com/file/d/1Gs1sR19U_udDoYkEakg7KKTEr4a9Yqup/view?usp=sharing" },
-  { id: "w-timeline", title: "Timeline",               category: "Wedding Films",    url: "https://drive.google.com/file/d/1RT9ItDrqX_nun8NpAc2QmsIQuAtPtQMO/view?usp=sharing" },
-  { id: "w-wedding",  title: "Wedding",                category: "Wedding Films",    url: "https://drive.google.com/file/d/1kh0qT4ZY3DPNA6V_mFYJqEia64SG86j9/view?usp=sharing" },
-
-  // ── Business Videos ────────────────────────────────────────────
-  { id: "b-flight",   title: "FLIGHT",                 category: "Business Videos",  url: "https://drive.google.com/file/d/1PTJbED0F5NLPJH8TVF8HWA4HfLSj9hmP/view?usp=sharing" },
-  { id: "b-gabe",     title: "Gabe",                   category: "Business Videos",  url: "https://drive.google.com/file/d/1IkooLTcZlS5dD_OjulhTZ9ERBUMLbY77/view?usp=sharing" },
-  { id: "b-gabe2",    title: "Gabe2",                  category: "Business Videos",  url: "https://drive.google.com/file/d/1oM8pJa2fr8siOj12xKnju-v4abqybCu6/view?usp=sharing" },
-  { id: "b-hes",      title: "HES",                    category: "Business Videos",  url: "https://drive.google.com/file/d/1sLoFgoRqZBTl95tV30_15NUFx9Po2a0q/view?usp=sharing", poster: "/brand-thumbnails/HES.png" },
-  { id: "b-homex",    title: "HomeX",                  category: "Business Videos",  url: "https://drive.google.com/file/d/1HSq3qvNRS9ZzNs9Bb9i_ftkJpGiPp-Uw/view?usp=sharing" },
-  { id: "b-homex1",   title: "HomeX (1)",              category: "Business Videos",  url: "https://drive.google.com/file/d/1viEgWqE_loaaKPGTD0b7G2MA67tekWum/view?usp=sharing" },
-  { id: "b-homex2",   title: "HomeX (2)",              category: "Business Videos",  url: "https://drive.google.com/file/d/1eCWyF1F7g0KaWajikru7XHpQBtNOWWdj/view?usp=sharing" },
-  { id: "b-homex3",   title: "HomeX (3)",              category: "Business Videos",  url: "https://drive.google.com/file/d/17HKHrkWo5FbN_EM1-LjxPK1NppaPhUzQ/view?usp=sharing" },
-  { id: "b-jdm",      title: "JDM",                    category: "Business Videos",  url: "https://drive.google.com/file/d/16vwbof85Z6nKubs5DDSMh44-lYv19M9X/view?usp=sharing" },
-  { id: "b-kl",       title: "KL",                     category: "Business Videos",  url: "https://drive.google.com/file/d/1Vo17Fq_-rRDY9KVIvKkW2-1J4-uOfzjs/view?usp=sharing" },
-  { id: "b-lugos",    title: "Lugos",                  category: "Business Videos",  url: "https://drive.google.com/file/d/1FHHqzpVCDm6RaEfCg-_yBf2-0kh79kXX/view?usp=sharing" },
-  { id: "b-lugos1",   title: "Lugos (1)",              category: "Business Videos",  url: "https://drive.google.com/file/d/1973sgn8XI-5vB-S914hw1b0Rnc_QGpml/view?usp=sharing" },
-  { id: "b-primary",  title: "Primary",                category: "Business Videos",  url: "https://drive.google.com/file/d/18HisolNQNxHYEIWbC-wQUfDXFosPUWUh/view?usp=sharing" },
-  { id: "b-recolor",  title: "Re-Color",               category: "Business Videos",  url: "https://drive.google.com/file/d/1oT3HotNqLLIWLrqM4B8pw0z8ZsW9IO8V/view?usp=sharing" },
-
-  // ── Creative Projects ──────────────────────────────────────────
-  { id: "c-co",       title: "CO",                     category: "Creative Projects", url: "https://drive.google.com/file/d/1UG9hWk65GzHkK4L2Uq9NM2dYAC-jZIqo/view?usp=sharing" },
-  { id: "c-flight",   title: "FLIGHT",                 category: "Creative Projects", url: "https://drive.google.com/file/d/10_K_41nk2aiibkHyG--fOT5teMMhEhdy/view?usp=sharing" },
-  { id: "c-kadrian",  title: "Kelly Adrian Interview", category: "Creative Projects", url: "https://drive.google.com/file/d/1FvnwdTU8mnVNPs5ukE9fSM1HUF0KeO1z/view?usp=sharing", poster: "/capture-thumbnails/kelly-adrian-interview.png" },
-  { id: "c-kdalton",  title: "Kelly Dalton Interview", category: "Creative Projects", url: "https://drive.google.com/file/d/1DFZPtoA496eJW-XDopy1sAxzXgoXmpqh/view?usp=sharing", poster: "/capture-thumbnails/kelly-dalton-interview.png" },
-  { id: "c-kstage",   title: "Kelly Stage Talk",       category: "Creative Projects", url: "https://drive.google.com/file/d/1RcZdX0H_H2gYLzrbRNnqzHRw7kll2frv/view?usp=sharing" },
-  { id: "c-ksummit",  title: "Kelly Summit Hype",      category: "Creative Projects", url: "https://drive.google.com/file/d/1aWx08QMzpb9p4sq0vMyrHUwZ4WXst_Ho/view?usp=sharing" },
-  { id: "c-ky",       title: "KY",                     category: "Creative Projects", url: "https://drive.google.com/file/d/11cJKXokE7jXimQhQTyBIgOZ07SiSS4Fa/view?usp=sharing" },
-  { id: "c-thai",     title: "Thai",                   category: "Creative Projects", url: "https://drive.google.com/file/d/1ZshVcl_qh56VtObEhqscyvhuEwhQdlaA/view?usp=sharing" },
-  { id: "c-tourney",  title: "Tourney",                category: "Creative Projects", url: "https://drive.google.com/file/d/1U-PNexinuidbFdIynYVxQq7NE1jMhFHD/view?usp=sharing" },
-  { id: "c-wedding",  title: "Wedding",                category: "Creative Projects", url: "https://drive.google.com/file/d/1cTskHY1mahOpsixpGIn7ZEUE_LgfZxvk/view?usp=sharing" },
+  { id: "w-hw", title: "H&W Wedding", category: "All", url: "/videos/H&W.mp4" },
+  { id: "w-jk", title: "J&K Wedding", category: "All", url: "/videos/J&K.mp4" },
+  { id: "w-lover", title: "Lover Wedding Short", category: "All", url: "/videos/Lover.mp4" },
+  { id: "w-pollard", title: "Pollard Wedding", category: "All", url: "/videos/pollard.mp4" },
+  { id: "w-the", title: "The Wedding", category: "All", url: "/videos/THE.mp4" },
+  { id: "w-wedding", title: "Wedding Short", category: "All", url: "/videos/wedding.mp4" },
+  { id: "c-timeline", title: "Timeline Short", category: "All", url: "/videos/Timeline.mp4" },
 ];
 
-const TAB_LABELS = ["All", "Wedding Films", "Business Videos", "Creative Projects"] as const;
+const TAB_LABELS = ["All"] as const;
 type Tab = (typeof TAB_LABELS)[number];
 
 function createFallbackPoster(label: string, category: Category) {
@@ -201,12 +168,8 @@ export function Portfolio() {
   const [showAllInAllTab, setShowAllInAllTab] = useState(false);
   const initialAllCount = 9;
 
-  const filtered = activeTab === "All"
-    ? projects
-    : projects.filter((p) => p.category === activeTab);
-  const visibleProjects = activeTab === "All" && !showAllInAllTab
-    ? filtered.slice(0, initialAllCount)
-    : filtered;
+  const filtered = projects;
+  const visibleProjects = filtered;
 
   return (
     <section id="portfolio" className="py-32 bg-brand-gray text-white">
@@ -225,33 +188,7 @@ export function Portfolio() {
             </h3>
           </motion.div>
 
-          {/* Filter Tabs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap gap-3"
-          >
-            {TAB_LABELS.map((tab) => (
-              <button
-                key={tab}
-                type="button"
-                onClick={() => {
-                  setActiveTab(tab);
-                  setShowAllInAllTab(false);
-                }}
-                className={cn(
-                  "px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300",
-                  activeTab === tab
-                    ? "bg-white text-black"
-                    : "border border-white/20 text-white/70 hover:text-white hover:border-white/50"
-                )}
-              >
-                {tab}
-              </button>
-            ))}
-          </motion.div>
+          {/* Filter Tabs removed as only 'All' remains */}
         </div>
 
         {/* Grid */}

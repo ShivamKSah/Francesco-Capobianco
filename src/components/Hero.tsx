@@ -7,22 +7,28 @@ export function Hero() {
   // Move down up to 400px as user scrolls 1000px
   const y = useTransform(scrollY, [0, 1000], [0, 400]);
 
+
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-brand-black flex items-center justify-center">
-      {/* Video Background */}
-      <motion.div 
-        className="absolute inset-0 z-0" 
-        style={{ 
-          y, 
-          scale: 1.25, // Scale up to prevent edges from showing during parallax
-          transformOrigin: "center top" // Keep top aligned so it scales down and has room to move
+      {/* Show Reel Video Autoplay */}
+      <motion.div
+        className="absolute inset-0 z-0 flex items-center justify-center"
+        style={{
+          y,
+          scale: 1.25,
+          transformOrigin: "center top"
         }}
       >
         <div className="absolute inset-0 bg-black/40 z-10" />
-        <img
-          src={bggImage}
-          alt="Cinematic background"
+        <video
           className="w-full h-full object-cover animate-[pulse_10s_ease-in-out_infinite_alternate]"
+            src="/videos/THE.mp4"
+          preload="auto"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
       </motion.div>
 

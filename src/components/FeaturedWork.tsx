@@ -9,25 +9,22 @@ const categories = [
   {
     title: "Wedding Films",
     image: image1,
-    description: "Authentic, emotional storytelling of your special day.",
-    href: "/wedding-films",
+    description: "Authentic, emotional storytelling of your special day."
   },
   {
     title: "Brand / Business Videos",
     image: image2,
-    description: "Clean, purposeful energy to elevate your brand.",
-    href: "/brand-videos",
+    description: "Clean, purposeful energy to elevate your brand."
   },
   {
     title: "Creative Projects",
     image: image3,
-    description: "Cinematic visuals for unique and artistic visions.",
-    href: "/creative-projects",
+    description: "Cinematic visuals for unique and artistic visions."
   },
 ];
 
 export function FeaturedWork() {
-  const navigate = useNavigate();
+  // navigation removed, cards are static
   return (
     <section id="work" className="py-32 bg-brand-black text-white">
       <div className="container mx-auto px-6 md:px-12">
@@ -66,8 +63,7 @@ export function FeaturedWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group cursor-pointer flex flex-col gap-6"
-              onClick={() => category.href && navigate(category.href)}
+              className="group flex flex-col gap-6"
             >
               <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-brand-gray">
                 <img
@@ -91,9 +87,6 @@ export function FeaturedWork() {
               <div>
                 <div className="flex items-center gap-2">
                   <h4 className="text-2xl font-serif mb-2 group-hover:text-white/80 transition-colors">{category.title}</h4>
-                  {category.href && (
-                    <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-y-1 text-white/60" />
-                  )}
                 </div>
                 <p className="text-white/60 font-light text-sm leading-relaxed">{category.description}</p>
               </div>
