@@ -23,7 +23,7 @@ export function Hero() {
         <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ position: 'relative' }}>
           <iframe
             className="animate-[pulse_10s_ease-in-out_infinite_alternate]"
-            src="https://www.youtube-nocookie.com/embed/krmSHGKyClg?autoplay=1&mute=1&loop=1&playlist=krmSHGKyClg&controls=0&modestbranding=1"
+            src="https://www.youtube-nocookie.com/embed/IBk4HoJlaGM?autoplay=1&mute=1&loop=1&playlist=IBk4HoJlaGM&controls=0&modestbranding=1&vq=hd1080"
             allow="autoplay; encrypted-media"
             allowFullScreen
             style={{

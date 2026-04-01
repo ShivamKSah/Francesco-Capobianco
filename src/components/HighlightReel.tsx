@@ -17,7 +17,7 @@ export function HighlightReel() {
           className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl"
         >
           <iframe
-            src="https://www.youtube.com/embed/3Or-gYGyMHA?autoplay=1&mute=1&loop=1&playlist=3Or-gYGyMHA&controls=1&modestbranding=1&showinfo=0"
+            src="https://www.youtube.com/embed/CltIWZ_U0xw?autoplay=1&mute=1&loop=1&playlist=CltIWZ_U0xw&controls=1&modestbranding=1&showinfo=0"
             title="Wedding Highlight Reel"
             className="w-full h-full"
             allow="autoplay; encrypted-media"

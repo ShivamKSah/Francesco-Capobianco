@@ -13,22 +13,23 @@ type Category = "All";
 
 interface Project {
   id: string;
-  title: string;
   category: Category;
   url: string;
   poster?: string;
 }
 
 const projects: Project[] = [
-  { id: "harrell", title: "Harrell", category: "All", url: "https://youtu.be/mLlJtvsjoYE" },
-  { id: "pollard", title: "Pollard", category: "All", url: "https://youtu.be/H2e0wALGZww" },
-  { id: "ja-wedding", title: "J&A Wedding", category: "All", url: "https://youtu.be/Hm7h8ZWXT3U" },
-  { id: "lover", title: "Lover", category: "All", url: "https://youtu.be/8TRii0tnQTw" },
-  { id: "the", title: "THE", category: "All", url: "https://youtu.be/krmSHGKyClg" },
-  { id: "hw", title: "H&W", category: "All", url: "https://youtu.be/CnlNrk7XyHk" },
-  { id: "eakins", title: "Eakins", category: "All", url: "https://youtu.be/gjlYsvXzfBo" },
-  { id: "wedding", title: "Wedding", category: "All", url: "https://youtu.be/3Or-gYGyMHA" },
-  { id: "jk", title: "J&K", category: "All", url: "https://youtube.com/shorts/oW17iVEF_8k?feature=share" },
+  { id: "nixrprmuceq", category: "All", url: "https://youtu.be/nIxrprmuCeQ?si=nW4QX1iPVQ_NliZN" },
+  { id: "pdvhvgo2dy", category: "All", url: "https://youtu.be/pdvhVgo-2DY?si=NfVmtByecNTPHL-z" },
+  { id: "kr1vw5hjao", category: "All", url: "https://youtu.be/kR1vW5hJaoI?si=RmDx9-UfBke6yPoZ" },
+  { id: "cltiwz_u0xw", category: "All", url: "https://youtu.be/zBdqlUPKJ-o?si=OYoiWHViWF6RAZlQ" },
+  { id: "yntxzcpdtu0a", category: "All", url: "https://youtu.be/yNTxZcpDTu0?si=GyRi4LwvBVGgGDMF" },
+  { id: "c_6yfief58g", category: "All", url: "https://youtu.be/c_6YFieF58g?si=gxa2W41WkuQ5A8Z-" },
+  { id: "9q_nlfbzc2g", category: "All", url: "https://youtu.be/9Q_NlFbZC2g?si=6OjfWHyZ-lfjIPFD" },
+  { id: "ibk4hojlagm", category: "All", url: "https://youtu.be/IBk4HoJlaGM?si=6yv3r3fN1z-C0yvH" },
+  { id: "qvbscf02pkq", category: "All", url: "https://youtu.be/qVbScf02PKQ?si=pWoExuCTqi4seGcW" },
+  { id: "zqgpvpzr62i", category: "All", url: "https://youtu.be/ZQGPVpZR62I?si=_2MUxKDJmHoE17Uk" },
+  { id: "5fohhhpq9u", category: "All", url: "https://youtu.be/5FOHHHPQ9-U?si=_cWdn0wo3765rnaR" },
 ];
 
 const TAB_LABELS = ["All"] as const;
@@ -103,9 +104,7 @@ function VideoModal({ project, onClose }: VideoModalProps) {
             ) : (
               <div className="w-full h-[80vh] flex items-center justify-center bg-black text-white">Invalid video link</div>
             )}
-            <p className="mt-4 text-center text-white/80 text-sm tracking-wider uppercase">
-              {project.title}
-            </p>
+            {/* Removed title display as requested */}
           </motion.div>
         </motion.div>
       )}
@@ -165,7 +164,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
       </div>
 
       <div className="flex items-center justify-between">
-        <h4 className="text-xl font-serif group-hover:text-white/80 transition-colors">{project.title}</h4>
+        {/* Removed title from card as requested */}
         <span className="text-xs uppercase tracking-widest text-white/50">{project.category}</span>
       </div>
     </motion.div>
