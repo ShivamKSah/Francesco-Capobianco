@@ -29,7 +29,6 @@ const projects: Project[] = [
   { id: "ibk4hojlagm", url: "https://youtu.be/IBk4HoJlaGM?si=6yv3r3fN1z-C0yvH" },
   { id: "qvbscf02pkq", url: "https://youtu.be/qVbScf02PKQ?si=pWoExuCTqi4seGcW" },
   { id: "zqgpvpzr62i", url: "https://youtu.be/ZQGPVpZR62I?si=_2MUxKDJmHoE17Uk" },
-  { id: "5fohhhpq9u", url: "https://youtu.be/5FOHHHPQ9-U?si=_cWdn0wo3765rnaR" },
 ];
 
 const TAB_LABELS = ["All"] as const;
