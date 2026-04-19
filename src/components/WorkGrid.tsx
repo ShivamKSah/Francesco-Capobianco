@@ -22,10 +22,10 @@ export function WorkGrid() {
                   src={project.src}
                   alt={project.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out flex-shrink-0 origin-center group-hover:scale-105"
-                  style={{ imageRendering: 'high-quality' }}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out flex-shrink-0 origin-center group-hover:scale-105 group-focus-within:scale-105"
+                  style={{ imageRendering: 'auto' }}
                 />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out drop-shadow-md">
+                <div className="absolute inset-0 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 ease-out drop-shadow-md bg-black/20">
                   <span className="text-brand-white/60 text-xs tracking-[0.2em] font-medium uppercase mb-2 block">
                     {project.date}
                   </span>

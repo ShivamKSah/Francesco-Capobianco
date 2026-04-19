@@ -36,7 +36,7 @@ export function Contact() {
     const eventDate = String(formData.get("eventDate") ?? "");
     const message = String(formData.get("message") ?? "");
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=shivamsah141205 @gmail.com&su=${encodeURIComponent(
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=shivamsah141205@gmail.com&su=${encodeURIComponent(
       `New Inquiry from ${name}`
     )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nEvent Type: ${eventType}\nEvent Date: ${eventDate}\nMessage: ${message}`
@@ -69,11 +69,11 @@ export function Contact() {
               <a href="mailto:shivamsah141205@gmail.com" className="text-2xl font-serif hover:text-white/70 transition-colors w-fit">
                 shivamsah141205@gmail.com
               </a>
-              <a href="tel:+18632896311" className="text-lg font-light text-white/70 hover:text-white transition-colors w-fit">
+              <a href="tel:+919963830194" className="text-lg font-light text-white/70 hover:text-white transition-colors w-fit">
                 +91 9963830194
               </a>
               <a href="https://www.instagram.com/francesco.shoots.it/" target="_blank" rel="noreferrer" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors w-fit flex items-center gap-2">
-                 @francesco.shoots.it
+                @francesco.shoots.it
               </a>
             </div>
           </motion.div>

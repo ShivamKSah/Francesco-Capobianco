@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react";
+
 import projectDetails from "../lib/projectDetails.json";
 import portfolioData from "../lib/portfolioData.json";
 
@@ -13,6 +14,37 @@ export function ProjectDetails() {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  if (!slug || !projectDetails[slug as keyof typeof projectDetails]) {
+    // If the project doesn't exist, redirect back to work grid
+    return <Navigate to="/work" replace />;
+  }
+
+  const project = projectDetails[slug as keyof typeof projectDetails] as { title: string; images: string[] };
+
+  const currentIndex = portfolioData.findIndex((p: any) => p.href.replace(".html", "") === slug);
+  const nextProjects: any[] = [];
+  if (currentIndex !== -1 && portfolioData.length > 2) {
+    for (let i = 1; i <= 2; i++) {
+      const nextIndex = (currentIndex + i) % portfolioData.length;
+      nextProjects.push(portfolioData[nextIndex]);
+    }
+  } else if (currentIndex !== -1 && portfolioData.length === 2) {
+      const nextIndex = (currentIndex + 1) % portfolioData.length;
+      nextProjects.push(portfolioData[nextIndex]);
+  }
+
+  const handlePrev = useCallback(() => {
+    setSelectedIndex((prev) => 
+      prev === null ? null : prev === 0 ? project.images.length - 1 : prev - 1
+    );
+  }, [project.images.length]);
+
+  const handleNext = useCallback(() => {
+    setSelectedIndex((prev) => 
+      prev === null ? null : prev === project.images.length - 1 ? 0 : prev + 1
+    );
+  }, [project.images.length]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
@@ -22,35 +54,7 @@ export function ProjectDetails() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex]);
-
-  if (!slug || !projectDetails[slug as keyof typeof projectDetails]) {
-    // If the project doesn't exist, redirect back to work grid
-    return <Navigate to="/work" replace />;
-  }
-
-  const project = projectDetails[slug as keyof typeof projectDetails] as { title: string; images: string[] };
-
-  const currentIndex = portfolioData.findIndex(p => p.href.replace(".html", "") === slug);
-  const nextProjects = [];
-  if (currentIndex !== -1 && portfolioData.length > 1) {
-    for (let i = 1; i <= 2; i++) {
-      const nextIndex = (currentIndex + i) % portfolioData.length;
-      nextProjects.push(portfolioData[nextIndex]);
-    }
-  }
-
-  const handlePrev = () => {
-    setSelectedIndex((prev) => 
-      prev === null ? null : prev === 0 ? project.images.length - 1 : prev - 1
-    );
-  };
-
-  const handleNext = () => {
-    setSelectedIndex((prev) => 
-      prev === null ? null : prev === project.images.length - 1 ? 0 : prev + 1
-    );
-  };
+  }, [selectedIndex, handlePrev, handleNext]);
 
   return (
     <div className="pt-[104px] pb-16 min-h-screen bg-brand-black text-brand-white">

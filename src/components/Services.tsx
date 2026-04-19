@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
 
@@ -11,6 +11,21 @@ const graphicDesigns = [
 
 export function Services() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && selectedImage) {
+        setSelectedImage(null);
+      }
+    };
+    if (selectedImage) {
+      window.addEventListener("keydown", handleKeyDown);
+      // Focus on the close button to entrap focus
+      closeButtonRef.current?.focus();
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage]);
 
   return (
     <section id="services" className="pt-[140px] pb-32 min-h-screen bg-brand-black text-brand-white">
@@ -42,7 +57,7 @@ export function Services() {
                 alt={`Graphic Design ${index + 1}`}
                 loading="lazy"
                 className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-500 ease-out"
-                style={{ imageRendering: 'high-quality' }}
+                style={{ imageRendering: 'auto' }}
               />
             </motion.div>
           ))}
@@ -53,14 +68,19 @@ export function Services() {
       <AnimatePresence>
         {selectedImage && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged view"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out outline-none"
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-6 right-6 text-white hover:text-white/70 z-[110]"
+              ref={closeButtonRef}
+              aria-label="Close image"
+              className="absolute top-6 right-6 text-white hover:text-white/70 z-[110] outline-none focus-visible:ring-2 focus-visible:ring-white rounded-full"
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImage(null);
@@ -73,7 +93,6 @@ export function Services() {
               src={selectedImage}
               alt="Zoomed Graphic Design"
               className="max-w-full max-h-full object-contain shadow-2xl"
-              style={{ imageRendering: 'high-quality' }}
             />
           </motion.div>
         )}

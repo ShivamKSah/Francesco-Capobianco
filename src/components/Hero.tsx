@@ -44,7 +44,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-6xl md:text-8xl lg:text-9xl font-serif text-white mb-8 text-balance"
         >
-          Francesco Capobianco<br />  
+          Francesco Capobianco
         </motion.h1>
 
         <motion.p
