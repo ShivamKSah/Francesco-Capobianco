@@ -1,19 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: "ftnk", "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: "shzc", "Playfair Display", ui-serif, Georgia, Cambria, serif;
 
-  --color-brand-black: #000000;
-  --color-brand-white: #FFFFFF;
-  --color-brand-blue: #1E3A8A;
-  --color-brand-green: #2E7D32;
-  --color-brand-gray: #111111;
-  --color-brand-light-gray: #F5F5F5;
+  /* Skijan Palette Theme overrides */
+  --color-skijan-burgundy: #380F17;   /* Top color - Deep burgundy */
+  --color-skijan-red: #8F0B13;        /* Second color - Bold red */
+  --color-skijan-cream: #EFDFC5;      /* Third color - Cream/beige */
+  --color-skijan-charcoal: #08080A;   /* Fourth color - Dark charcoal */
+  --color-skijan-gray: #121316;       /* Bottom color - Slate gray */
+
+  /* Map to primary variables used in components if needed */
+  --color-brand-black: #050608;    /* Very deep, dark tone matching the hero background */
+  --color-brand-gray: #111215;     /* Slightly lighter for cards and surface areas */
+  --color-brand-blue: #911F24;     /* Deep rich red from the hero button */
+  --color-accent-green: #911F24;   
+  --color-accent-blue: #911F24;    /* Accent used for primary red buttons */
   
-  --color-accent-blue: #3B82F6;
-  --color-accent-green: #10B981;
+  --color-brand-white: #F1E5D1;    /* Cream text from the hero */
+  --color-brand-green: #911F24;
+  --color-brand-light-gray: #F1E5D1;
+  
+  /* Overriding default Tailwind colors to force the palette across the site globally */
+  --color-white: #F1E5D1;
+  --color-black: #050608;
+  --white: #F1E5D1;
+  --black: #050608;
+
+  /* Adjust additional scale variants for global coverage */
+  --color-white-50: rgba(239, 223, 197, 0.5); /* EFDFC5 mostly opaque */
+  --color-black-50: rgba(37, 43, 43, 0.5);
+  --color-slate-300: #d8c8af; 
 }
 
 @layer base {
@@ -25,7 +45,13 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-normal tracking-tight;
+    @apply font-serif font-normal italic tracking-wide;
+  }
+
+  /* Force global alignment in case other component abstractions run out of map */
+  ::selection {
+    background-color: var(--color-brand-white);
+    color: var(--color-brand-black);
   }
 }
 

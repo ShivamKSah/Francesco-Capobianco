@@ -36,7 +36,7 @@ export function Contact() {
     const eventDate = String(formData.get("eventDate") ?? "");
     const message = String(formData.get("message") ?? "");
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=aidank0125@gmail.com&su=${encodeURIComponent(
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=shivamsah141205 @gmail.com&su=${encodeURIComponent(
       `New Inquiry from ${name}`
     )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nEvent Type: ${eventType}\nEvent Date: ${eventDate}\nMessage: ${message}`
@@ -45,7 +45,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-brand-black text-white relative overflow-hidden">
+    <section id="contact" className="py-32 bg-brand-black text-brand-white relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           
@@ -66,14 +66,14 @@ export function Contact() {
             </p>
             
             <div className="flex flex-col gap-6">
-              <a href="mailto:aidank0125@gmail.com" className="text-2xl font-serif hover:text-white/70 transition-colors w-fit">
-                aidank0125@gmail.com
+              <a href="mailto:shivamsah141205@gmail.com" className="text-2xl font-serif hover:text-white/70 transition-colors w-fit">
+                shivamsah141205@gmail.com
               </a>
               <a href="tel:+18632896311" className="text-lg font-light text-white/70 hover:text-white transition-colors w-fit">
-                +1 (863) 289-6311
+                +91 9963830194
               </a>
-              <a href="https://instagram.com/doubletakefilms_" target="_blank" rel="noreferrer" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors w-fit">
-                 @doubletakefilms_
+              <a href="https://www.instagram.com/francesco.shoots.it/" target="_blank" rel="noreferrer" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors w-fit flex items-center gap-2">
+                 @francesco.shoots.it
               </a>
             </div>
           </motion.div>
@@ -189,7 +189,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-full font-medium tracking-wide uppercase text-sm transition-all mt-4 w-full md:w-auto self-start hover:bg-white/90"
+                className="group flex items-center justify-center gap-3 bg-brand-white text-brand-black px-8 py-4 rounded-full font-medium tracking-wide uppercase text-sm transition-all mt-4 w-full md:w-auto self-start hover:bg-brand-white/90"
               >
                 Send Inquiry
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

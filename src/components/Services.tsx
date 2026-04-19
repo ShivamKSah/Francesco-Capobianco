@@ -1,73 +1,83 @@
-import { motion } from "motion/react";
-import { Video, Briefcase, CalendarHeart, Share2 } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { X } from "lucide-react";
 
-const services = [
-  {
-    title: "Wedding Videography",
-    description: "Cinematic and emotional wedding films that capture the authentic love, joy, and chaos of your special day.",
-    icon: CalendarHeart,
-  },
-  {
-    title: "Brand Storytelling",
-    description: "High-quality, purposeful videos designed to elevate your brand and connect with your audience on a deeper level.",
-    icon: Briefcase,
-  },
-  {
-    title: "Event Videography",
-    description: "Professional coverage for corporate events, private parties, and once-in-a-lifetime celebrations.",
-    icon: Video,
-  },
-  {
-    title: "Social Media Content",
-    description: "Short-form, engaging video content tailored for Instagram, TikTok, and modern digital platforms.",
-    icon: Share2,
-  },
+const graphicDesigns = [
+  "https://cdn.myportfolio.com/4bb84124-3f9c-42b0-8fa4-9918a8be788b/4214cf30-f3b3-4a37-a72c-368669735b30_rw_1920.png?h=4287da97f84d29a7f5afcaa6fd000368",
+  "https://cdn.myportfolio.com/4bb84124-3f9c-42b0-8fa4-9918a8be788b/64877aa6-5a90-4e0b-976f-4f24bb4ca305_rw_1920.png?h=040d630bbf96e1e41b6ca0d79677bf83",
+  "https://cdn.myportfolio.com/4bb84124-3f9c-42b0-8fa4-9918a8be788b/6977d7ac-7bd0-4893-be43-96afcdecf573_rw_1920.png?h=c747f482d933d4f129b9de12b21fcfba",
+  "https://cdn.myportfolio.com/4bb84124-3f9c-42b0-8fa4-9918a8be788b/a4cda913-c473-43f1-a6e1-c92e3f99b52f_rw_1920.png?h=1a7c4fae9ce99deeda85bf4d9b3fd8de",
 ];
 
 export function Services() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
-    <section id="services" className="py-32 bg-brand-black text-white">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.h2
+    <section id="services" className="pt-[140px] pb-32 min-h-screen bg-brand-black text-brand-white">
+      <div className="w-full max-w-[2400px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
+        <div className="text-center mb-16 md:mb-24">
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-sm tracking-[0.2em] uppercase text-white/50 mb-4"
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl md:text-5xl lg:text-[4rem] font-display italic tracking-[0.15em] uppercase text-[#f4efe8]"
           >
-            Our Services
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-serif text-balance leading-tight"
-          >
-            Crafting visual stories that leave a lasting impact.
-          </motion.h3>
+            Graphic Design
+          </motion.h1>
+          <div className="w-12 h-[1px] bg-[#f4efe8]/30 mx-auto mt-10"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[5px]">
+          {graphicDesigns.map((src, index) => (
             <motion.div
-              key={service.title}
+              key={index}
+              layoutId={src}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group p-8 md:p-12 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500"
+              className="relative block overflow-hidden cursor-zoom-in"
+              onClick={() => setSelectedImage(src)}
             >
-              <div className="w-16 h-16 rounded-full bg-brand-gray flex items-center justify-center mb-8 text-white group-hover:scale-110 transition-transform duration-500">
-                <service.icon size={28} strokeWidth={1.5} />
-              </div>
-              <h4 className="text-2xl font-serif mb-4 group-hover:text-white/90 transition-colors">{service.title}</h4>
-              <p className="text-white/60 font-light leading-relaxed text-lg">{service.description}</p>
+              <motion.img
+                src={src}
+                alt={`Graphic Design ${index + 1}`}
+                loading="lazy"
+                className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-500 ease-out"
+                style={{ imageRendering: 'high-quality' }}
+              />
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Fullscreen Image Pop-up */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-6 right-6 text-white hover:text-white/70 z-[110]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              <X size={32} strokeWidth={1} />
+            </button>
+            <motion.img
+              layoutId={selectedImage}
+              src={selectedImage}
+              alt="Zoomed Graphic Design"
+              className="max-w-full max-h-full object-contain shadow-2xl"
+              style={{ imageRendering: 'high-quality' }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

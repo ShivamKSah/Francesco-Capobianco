@@ -1,6 +1,6 @@
-# Aidan Kramer | Double Take Films Portfolio
+# Francesco Capobianco | Francesco Capobianco Portfolio
 
-A cinematic, modern portfolio website for **Aidan Kramer**, the creative mind behind **Double Take Films**. This project showcases high-end videography work for weddings, brands, and unforgettable moments.
+A cinematic, modern portfolio website for **Francesco Capobianco**. This project showcases high-end videography work for weddings, brands, and unforgettable moments.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19.0.0-blue.svg)](https://react.dev/)
@@ -82,7 +82,7 @@ A cinematic, modern portfolio website for **Aidan Kramer**, the creative mind be
 
 ## 👨‍💻 Author
 
-**Aidan Kramer** - *Filmmaker & Storyteller*
+**Francesco Capobianco** - *Filmmaker & Storyteller*
 
 ---
 

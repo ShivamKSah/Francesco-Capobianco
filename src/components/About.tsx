@@ -1,14 +1,14 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
-import aidanImg from '../../aidan.png';
+import fImage from '../about-profile.jpg';
 
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="about" className="py-32 md:py-48 flex items-center min-h-[80vh] bg-slate-900/30 border-y border-white/5">
+    <section id="about" className="py-32 md:py-48 flex items-center min-h-[80vh] bg-brand-black border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
         <motion.div
            ref={ref}
@@ -21,10 +21,10 @@ export function About() {
           <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-accent-blue z-0"></div>
           <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-accent-green z-0"></div>
           <div className="relative z-10 overflow-hidden aspect-[4/5] w-full">
-            <img 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
-              alt="Portrait of Aidan Kramer looking thoughtful" 
-              src={aidanImg}
+            <img
+              className="w-full h-full object-cover transition-all duration-700"
+              alt="Portrait of Francesco Capobianco looking thoughtful"
+              src={fImage}
             />
           </div>
         </motion.div>
@@ -35,16 +35,18 @@ export function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-accent-green font-bold tracking-[0.3em] uppercase text-xs mb-4 block">The Filmmaker</span>
-          <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">Aidan Kramer</h2>
-          <div className="space-y-6 text-slate-300 font-light leading-relaxed text-lg">
-            <p>I believe film should make you feel something, not just look good.</p>
-            <p>Somewhere along the way, a lot of video got safe. Predictable. The same shots, the same pacing, the same polished but forgettable style. That’s not what I’m here to do.</p>
-            <p>I got into this because I wanted to make things that actually hit.. films that feel alive, that people want to watch more than once, that don’t just document a moment but bring it back to life.</p>
-            <p>Since starting Double Take Films, I’ve focused on keeping that energy in everything I shoot. Whether it’s a wedding, a brand, or a story that matters to you, I’m always chasing movement, emotion, and moments that feel real—not staged, not forced.</p>
-            <p>At the end of the day, I don’t care about making something that looks like everyone else’s work.</p>
-            <p>I care about making something you feel.</p>
-            <p className="font-serif italic text-white text-xl">“Good films are seen. Great films are felt.”</p>
+          <span className="text-accent-green font-bold tracking-[0.3em] uppercase text-xs mb-4 block">The Photographer</span>
+          <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">Francesco Capobianco</h2>
+          <div className="space-y-6 text-brand-white/80 font-light leading-relaxed text-lg">
+            <p>I don’t just take photos — I capture presence.</p>
+            <p>Most images today are made to impress. Sharp, clean, perfectly edited… and quickly forgotten. But real moments aren’t perfect — they’re honest, fleeting, and alive.</p>
+            <p>That’s what I chase.</p>
+            <p>I picked up a camera to create work that lingers. Frames that hold energy. Stories that don’t need explanation — you just feel them.</p>
+            <p>Every project I take on is about connection. The light, the mood, the silence in between — those are the details that turn a moment into something timeless.</p>
+            <p>Whether it’s a face, a place, or a story, I don’t direct reality — I observe it, shape it, and preserve it.</p>
+            <p>I’m not here to follow trends or recreate what’s already been done.</p>
+            <p>I’m here to create something that stays with you.</p>
+            <p className="font-serif italic text-white text-xl">“Some moments aren’t meant to be remembered—they’re meant to be felt again.”</p>
           </div>
           <div className="mt-10 flex gap-6 grayscale opacity-50">
              {/* Note: The user's snippet ended here abruptly, probably meant for social icons or similar. Adding a placeholder or leaving it empty as per snippet */}

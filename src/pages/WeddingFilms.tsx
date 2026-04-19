@@ -228,7 +228,7 @@ export default function WeddingFilms() {
   const [activeVideo, setActiveVideo] = useState<(typeof videos)[0] | null>(null);
 
   return (
-    <div className="min-h-screen bg-brand-black text-white">
+    <div className="min-h-screen bg-brand-black text-brand-white">
       {/* Header */}
       <div className="sticky top-0 z-40 bg-brand-black/80 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 md:px-12 h-16 flex items-center gap-6">
@@ -240,7 +240,7 @@ export default function WeddingFilms() {
             Back
           </button>
           <div className="h-4 w-px bg-white/20" />
-          <span className="text-sm tracking-widest uppercase text-white/50">Double Take</span>
+          <span className="text-sm tracking-widest uppercase text-white/50">Francesco Capobianco</span>
         </div>
       </div>
 
