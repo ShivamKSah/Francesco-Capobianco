@@ -1,6 +1,6 @@
-# Francesco Capobianco | Francesco Capobianco Portfolio
+# Francesco Capobianco | Portfolio
 
-A cinematic, modern portfolio website for **Francesco Capobianco**. This project showcases high-end videography work for weddings, brands, and unforgettable moments.
+A cinematic, modern portfolio website for **Francesco Capobianco**. This project showcases high-end photography and videography work—focusing on photoshoots and automobiles—captured to be felt, not just seen.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19.0.0-blue.svg)](https://react.dev/)
@@ -13,7 +13,7 @@ A cinematic, modern portfolio website for **Francesco Capobianco**. This project
 
 - **Cinematic Experience:** Premium dark-themed aesthetic with glassmorphism and smooth animations.
 - **Dynamic Navbar:** Responsive navigation that transforms on scroll for a seamless UX.
-- **Featured Work:** A dedicated section to showcase top-tier videography projects.
+- **Featured Work:** A dedicated section to showcase top-tier photography and videography projects with an Instagram-style grid layout.
 - **Interactive Contact Form:** Fully integrated inquiry form with state management and validation.
 - **Performance Optimized:** Built with Vite and React for lightning-fast load times.
 - **Responsive Design:** Fully fluid layout that looks stunning on every device.
@@ -23,7 +23,7 @@ A cinematic, modern portfolio website for **Francesco Capobianco**. This project
 ## 🚀 Tech Stack
 
 - **Frontend:** React 19, TypeScript
-- **Styling:** Tailwind CSS 4, CSS Modules
+- **Styling:** Tailwind CSS 4
 - **Animations:** Motion (Framer Motion)
 - **Icons:** Lucide React
 - **Build Tool:** Vite
@@ -40,8 +40,8 @@ A cinematic, modern portfolio website for **Francesco Capobianco**. This project
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/ShivamKSah/Aidan-Kramer-Portfolio.git
-   cd Aidan-Kramer-Portfolio
+   git clone https://github.com/ShivamKSah/Francesco-Capobianco.git
+   cd Francesco-Capobianco
    ```
 
 2. **Install dependencies:**
@@ -55,7 +55,7 @@ A cinematic, modern portfolio website for **Francesco Capobianco**. This project
    ```
 
 4. **Open in your browser:**
-   Navigate to `http://localhost:5173/`
+   Navigate to `http://localhost:4000/` (or the port specified in your terminal)
 
 ---
 
@@ -64,11 +64,11 @@ A cinematic, modern portfolio website for **Francesco Capobianco**. This project
 ```text
 ├── src/
 │   ├── components/  # Reusable UI components
-│   ├── lib/         # Utility functions and configurations
-│   ├── assets/      # Images and static files
-│   ├── App.tsx      # Main application entry
+│   ├── lib/         # Utility functions and JSON data stores
+│   ├── pages/       # Next generation page routes
+│   ├── App.tsx      # Main application routing and layout
 │   └── main.tsx     # React DOM rendering
-├── public/          # Static assets
+├── public/          # Static assets and video thumbnails
 └── index.html       # HTML entry point
 ```
 
@@ -76,13 +76,13 @@ A cinematic, modern portfolio website for **Francesco Capobianco**. This project
 
 ## 📸 Preview
 
-*Check out the live development preview at `http://localhost:5173/` or refer to the repository screenshots.*
+*Check out the live development preview at `http://localhost:4000/` or refer to the repository screenshots.*
 
 ---
 
 ## 👨‍💻 Author
 
-**Francesco Capobianco** - *Filmmaker & Storyteller*
+**Francesco Capobianco** - *Photographer & Automotive Storyteller*
 
 ---
 
